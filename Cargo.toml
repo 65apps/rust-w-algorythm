@@ -1,0 +1,13 @@
+[package]
+name = "libshingles"
+version = "0.1.0"
+authors = ["Andrey Ivanov <lekkion@gmail.com>"]
+
+[dependencies]
+regex = "0.1.41"
+rust-crypto = "^0.2"
+libc = "0.1"
+
+[lib]
+name = "libshingles"
+crate_type = ["dylib"]
