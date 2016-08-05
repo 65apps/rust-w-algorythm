@@ -4,10 +4,10 @@ version = "0.1.0"
 authors = ["Andrey Ivanov <lekkion@gmail.com>"]
 
 [dependencies]
-regex = "0.1.41"
+regex = "^0.1"
 rust-crypto = "^0.2"
-libc = "0.1"
+libc = "^0.2"
 
 [lib]
 name = "libshingles"
-crate_type = ["dylib"]
+crate-type = ["rlib","dylib"]
