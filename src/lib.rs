@@ -48,12 +48,12 @@ impl<'a> CompareText<'a> {
 
 impl<'a> Canonize for CompareText<'a> {
 	fn delete_html(&mut self) {
-		let html = Regex::new(r"<[^>]*>|[:punct:]").unwrap();
+		let html = Regex::new(r"<[^>]*script[^>]*>[^<]*</script>|<[^>]*>|[:punct:]").unwrap();
 		let mut without_html = html.replace_all(self.text_a, " ");
 
 		self.buffer_a = Buffer::Some(without_html);		
 
-		without_html = html.replace_all(self.text_b, " ");
+		without_html = html.replace_all(self.text_b, " ");		
 
 		self.buffer_b = Buffer::Some(without_html);		
 	} 	
@@ -151,7 +151,8 @@ impl<'a> Matching for CompareText<'a> {
 		}
 
 		same = same*100;
-		let length_text = std::cmp::min(shingles1.len(), shingles2.len()) as f32;		
+		let length_text = std::cmp::min(shingles1.len(), shingles2.len()) as f32;				
+
 		same as f32/length_text
 	}
 }
